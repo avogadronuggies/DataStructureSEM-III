@@ -6,42 +6,58 @@ struct box
     char colour[10];
     int height;
     int width;
-    
 };
 struct box b[size];
-int top=-1;
+int top = -1;
 void push(struct box item)
 {
-    if(top==size-1)
+    if (top == size - 1)
     {
         printf("Stack Overflow\n");
     }
-    else{
+    else
+    {
         top++;
-        b[top]=item;
+        b[top] = item;
     }
 }
 
 void pop()
 {
-    if(top==-1)
+    if (top == -1)
     {
         printf("Stack Underflow\n");
     }
-    else{
-        printf("Deleting %s %d %d",b[top].colour,b[top].height,b[top].width);
+    else
+    {
+        printf("Deleting %s %d %d", b[top].colour, b[top].height, b[top].width);
+        top--;
     }
 }
 
 void peek()
 {
-    printf("TOP Element: %s %d %d",b[top].colour,b[top].height,b[top].width);
+    if (top == -1)
+    {
+        printf("Stack Underflow\n");
+    }
+    else
+    {
+        printf("TOP Element: %s %d %d", b[top].colour, b[top].height, b[top].width);
+    }
 }
 
+void display()
+{
+    for (int i = top; i > -1; i--)
+    {
+        printf("%s %d %d \n", b[i].colour, b[i].height, b[i].width);
+    }
+}
 int main()
 {
     int choice;
-
+    struct box item;
     while (1)
     {
         printf("\nChoose Operation:\n");
@@ -51,7 +67,9 @@ int main()
         switch (choice)
         {
         case 1:
-            push();
+            printf("Enter the box details: colour height width\n");
+            scanf("%s %d %d", item.colour, &item.height, &item.width);
+            push(item);
             break;
 
         case 2:
