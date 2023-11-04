@@ -1,63 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 5
-
-int arr[SIZE];
-int top = -1;
-// implementation of stack using array
-
-// PUSH Function
-void push()
+#define size 5
+struct box
 {
-    int data;
-    printf("Enter the element to be pushed: ");
-    scanf("%d", &data);
-    if (top == -1)
+    char colour[10];
+    int height;
+    int width;
+    
+};
+struct box b[size];
+int top=-1;
+void push(struct box item)
+{
+    if(top==size-1)
     {
-        printf("%d pushed onto the stack", data);
-        top++;
-        arr[top] = data;
+        printf("Stack Overflow\n");
     }
-    else if (top == SIZE)
-    {
-        printf("Stack Overflow");
-    }
-    else
-    {
-        printf("%d pushed onto the stack", data);
+    else{
         top++;
-        arr[top] = data;
+        b[top]=item;
     }
 }
-//Deleting the element at the top of stack
+
 void pop()
 {
-    if (top == -1)
+    if(top==-1)
     {
-        printf("Stack underflow");
+        printf("Stack Underflow\n");
     }
-    else
-    {
-        printf("Element Deleted from the stack %d",arr[top]);
-        top--;
+    else{
+        printf("Deleting %s %d %d",b[top].colour,b[top].height,b[top].width);
     }
 }
-//Display the element at the top of the stack
+
 void peek()
 {
-    printf("The topmost element is %d\n", arr[top]);
+    printf("TOP Element: %s %d %d",b[top].colour,b[top].height,b[top].width);
 }
-//Display the stack elements
-void display()
-{
-    print("TOP");
-    print("|");
-    print("v");
-    for(int i=top;i>-1;i--)
-    {
-        printf("%d\n",arr[i]);
-    }
-}
+
 int main()
 {
     int choice;
