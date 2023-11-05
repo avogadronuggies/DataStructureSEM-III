@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 // Implementation of Breadth First Search and Depth First Search
-#define MAX_SIZE 100
+it#define MAX_SIZE 100
 
 int graph[MAX_SIZE][MAX_SIZE];
 bool visited[MAX_SIZE];
