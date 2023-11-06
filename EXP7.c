@@ -149,8 +149,9 @@ void display() {
         current = current->next;
     } while (current != head);
 
-    printf("\n");
+    printf("->head\n");
 }
+
 
 int main() {
     int choice, val;
