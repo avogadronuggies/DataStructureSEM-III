@@ -21,6 +21,10 @@ struct Node* createNode(int data)
 struct Node* insertatBeginning(struct Node *head, int data)
 {
     struct Node *newNode = createNode(data);
+    if(head==NULL)
+    {
+        return newNode;
+    }
     newNode->next = head;
     return newNode;
 }
