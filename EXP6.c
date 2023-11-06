@@ -137,13 +137,30 @@ void printList(struct Node *head)
     printf("%d -> NULL\n", ptr->data);
 }
 
+int search(struct Node *head,int key)
+{
+    struct Node *ptr=head;
+    while(ptr!=NULL)
+    {
+        if(ptr->data==key)
+        {
+            return 1;
+        }
+        else
+        {
+            ptr=ptr->next;
+        }
+    }
+    return 0;
+}
+
 int main()
 {
     struct Node *head = NULL;
-    int ch, data, key;
+    int ch, data, key,result;
     while(1)
     {
-        printf("\nMenu:\n1.Insert at beginning.\n2.Insert after a given node.\n3.Insert at End.\n4.Delete from Beginning\n5.Delete from end\n6.Delete After Node\n7.Display List\n8.Exit");
+        printf("\nMenu:\n1.Insert at beginning.\n2.Insert after a given node.\n3.Insert at End.\n4.Delete from Beginning\n5.Delete from end\n6.Delete After Node\n7.Display List\n8.Search Element\n9.Exit\n");
         printf("Enter Your Choice:");
         scanf("%d", &ch);
         switch(ch)
@@ -180,6 +197,18 @@ int main()
             printList(head);
             break;
             case 8:
+            printf("Enter Element to Search\n");
+            scanf("%d",&key);
+            result= search(head,key);
+            if(result==1)
+            {
+                printf("Element Found in the list\n");
+            }
+            else{
+                printf("Element not found in the list\n");
+            }
+				break;
+            case 9:
             printf("Exiting...");
             exit(1);
             break;
