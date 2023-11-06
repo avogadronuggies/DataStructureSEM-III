@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
 #define size 10
 
 char a[size];
@@ -77,6 +78,9 @@ int evalutePostfix(char postfix[])
                 break;
             case '*':
                 push(op1 * op2);
+                break;
+            case '^':
+                push(pow(op1, op2));
                 break;
             }
         }
