@@ -49,6 +49,9 @@ int isOperator(char ch)
     case '*':
         return 4;
         break;
+    case '^':
+        return 5;
+        break;
     }
 }
 int evalutePostfix(char postfix[])
